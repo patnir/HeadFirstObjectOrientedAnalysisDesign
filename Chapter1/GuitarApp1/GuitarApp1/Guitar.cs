@@ -41,67 +41,46 @@ namespace GuitarApp1
 	public class Guitar
 	{
 		public string serialNumber;
-		private Builder builder;
-		private string model;
-		private Type type;
-		private Wood backWood;
-		private Wood topWood;
 		private double price;
+		private GuitarSpec spec;
 
 		public Guitar(string serialNumber, double price,
 			Builder builder, string model, Type type, Wood backWood,
-			Wood topWood)
+			Wood topWood, int numStrings = 6)
 		{
 			this.serialNumber = serialNumber;
 			this.price = price;
-			this.builder = builder;
-			this.model = model;
-			this.type = type;
-			this.topWood = topWood;
-			this.backWood = backWood;
+			this.spec = new GuitarSpec(builder, model, type, backWood, topWood, numStrings);
 		}
 
 		public void print()
 		{
-			Console.WriteLine(
-				this.builder + " " + this.model + " " + this.type + " guitar:\n"
-				+ this.backWood + " back and sides, and " + this.topWood + " top.\nYou can get it for $" + this.price
-				 + "\n");
+			this.spec.print();
+			Console.WriteLine("You can get it for $" + this.price + ".\n");
 		}
+		
 
 		public string getSerialNumber()
 		{
 			return this.serialNumber;
 		}
 
-		public Builder getBuilder()
+		public GuitarSpec getGuitarSpec()
 		{
-			return this.builder;
+			return this.spec;
 		}
+
+
 
 		public void setPrice(float newPrice)
 		{
 			this.price = newPrice;
 		}
 
-		public string getModel()
-		{
-			return this.model;
-		}
 
-		public Wood getTopWood()
-		{
-			return this.topWood;
-		}
 
-		public Type getType()
-		{
-			return this.type;
-		}
+		
 
-		public Wood getBackWood()
-		{
-			return this.backWood;
-		}
+		
 	}
 }

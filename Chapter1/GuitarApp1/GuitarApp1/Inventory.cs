@@ -17,9 +17,9 @@ namespace GuitarApp1
 
 		public void addGuitar(string serialNumber, double price,
 			Builder builder, string model, Type type, Wood backWood,
-			Wood topWood)
+			Wood topWood, int numStrings = 6)
 		{
-			Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
+			Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood, numStrings);
 			guitars.AddLast(guitar);
 		}
 
@@ -36,24 +36,16 @@ namespace GuitarApp1
 			return null;
 		}
 
-		public Guitar search(Guitar searchGuitar)
+		public List<Guitar> search(GuitarSpec searchGuitar)
 		{
-			foreach (Guitar g in this.guitars)
+			List<Guitar> matches = new List<Guitar>();
+			foreach (Guitar guitar in this.guitars)
 			{
-				if (g.getBuilder() != searchGuitar.getBuilder())
-					continue;
-				if (g.getType() != searchGuitar.getType())
-					continue;
-				if (g.getBackWood() != searchGuitar.getBackWood())
-					continue;
-				if (g.getTopWood() != searchGuitar.getTopWood())
-					continue;
-				string model = g.getModel();
-				if (compareStrings(model, searchGuitar.getModel()) == false)
-					continue;
-				return g;
+				GuitarSpec spec = guitar.getGuitarSpec();
+				if (searchGuitar.Equals(spec))
+					matches.Add(guitar);
 			}
-			return null;
+			return matches;
 		}
 
 		public bool compareStrings(string one, string two)
