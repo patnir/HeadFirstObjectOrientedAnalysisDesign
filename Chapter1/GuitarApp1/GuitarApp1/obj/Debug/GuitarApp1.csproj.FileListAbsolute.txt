@@ -1,0 +1,6 @@
+C:\Users\SUNITA\Desktop\HackBaby!\HeadFirstOOAD\Chapter1\GuitarApp1\GuitarApp1\bin\Debug\GuitarApp1.exe.config
+C:\Users\SUNITA\Desktop\HackBaby!\HeadFirstOOAD\Chapter1\GuitarApp1\GuitarApp1\bin\Debug\GuitarApp1.exe
+C:\Users\SUNITA\Desktop\HackBaby!\HeadFirstOOAD\Chapter1\GuitarApp1\GuitarApp1\bin\Debug\GuitarApp1.pdb
+C:\Users\SUNITA\Desktop\HackBaby!\HeadFirstOOAD\Chapter1\GuitarApp1\GuitarApp1\obj\Debug\GuitarApp1.csprojResolveAssemblyReference.cache
+C:\Users\SUNITA\Desktop\HackBaby!\HeadFirstOOAD\Chapter1\GuitarApp1\GuitarApp1\obj\Debug\GuitarApp1.exe
+C:\Users\SUNITA\Desktop\HackBaby!\HeadFirstOOAD\Chapter1\GuitarApp1\GuitarApp1\obj\Debug\GuitarApp1.pdb
