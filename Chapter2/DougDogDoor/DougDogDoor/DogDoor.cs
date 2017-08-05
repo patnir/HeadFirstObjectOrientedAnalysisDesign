@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DougDogDoor
 {
-	class DogDoor
+	public class DogDoor
 	{
 		private bool open;
 

@@ -10,6 +10,12 @@ namespace DougDogDoor
 	{
 		static void Main(string[] args)
 		{
+			Console.WriteLine("Dog door application");
+
+			DogDoorSimulator.Test1();
+
+			Console.WriteLine("Hit enter to finish");
+			Console.ReadLine();
 		}
 	}
 }
