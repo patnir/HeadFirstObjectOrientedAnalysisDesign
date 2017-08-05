@@ -17,9 +17,10 @@ namespace GuitarApp1
 
 		public void addGuitar(string serialNumber, double price,
 			Builder builder, string model, Type type, Wood backWood,
-			Wood topWood, int numStrings = 6)
+			Wood topWood, int numStrings)
 		{
-			Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood, numStrings);
+			GuitarSpec spec = new GuitarSpec(builder, model, type, backWood, topWood, numStrings);
+			Guitar guitar = new Guitar(serialNumber, price, spec);
 			guitars.AddLast(guitar);
 		}
 

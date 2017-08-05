@@ -45,12 +45,11 @@ namespace GuitarApp1
 		private GuitarSpec spec;
 
 		public Guitar(string serialNumber, double price,
-			Builder builder, string model, Type type, Wood backWood,
-			Wood topWood, int numStrings = 6)
+			GuitarSpec spec)
 		{
 			this.serialNumber = serialNumber;
 			this.price = price;
-			this.spec = new GuitarSpec(builder, model, type, backWood, topWood, numStrings);
+			this.spec = spec;
 		}
 
 		public void print()
