@@ -6,19 +6,51 @@ using System.Threading.Tasks;
 
 namespace GuitarApp1
 {
+	public enum Type
+	{
+		ACOUSITC,
+		ELECTRIC		
+	}
+
+	public enum Builder
+	{
+		FENDER,
+		MARTIN, 
+		GIBSON, 
+		COLLINGS,
+		OLSON,
+		RYAN, 
+		PRS,
+		ANY
+	}
+
+	public enum Wood
+	{
+		INDIAN_ROSEWOOD,
+		BRAZILIAN_ROSEWOOD,
+		MAHOGANY,
+		MAPLE,
+		COCOBOLO,
+		CEDAR,
+		ADIRONDACK,
+		ALDER,
+		SITKA
+	}
+
+
 	public class Guitar
 	{
 		public string serialNumber;
-		private string builder;
+		private Builder builder;
 		private string model;
-		private string type;
-		private string backWood;
-		private string topWood;
+		private Type type;
+		private Wood backWood;
+		private Wood topWood;
 		private double price;
 
 		public Guitar(string serialNumber, double price,
-			string builder, string model, string type, string backWood,
-			string topWood)
+			Builder builder, string model, Type type, Wood backWood,
+			Wood topWood)
 		{
 			this.serialNumber = serialNumber;
 			this.price = price;
@@ -29,12 +61,20 @@ namespace GuitarApp1
 			this.backWood = backWood;
 		}
 
+		public void print()
+		{
+			Console.WriteLine(
+				this.builder + " " + this.model + " " + this.type + " guitar:\n"
+				+ this.backWood + " back and sides, and " + this.topWood + " top.\nYou can get it for $" + this.price
+				 + "\n");
+		}
+
 		public string getSerialNumber()
 		{
 			return this.serialNumber;
 		}
 
-		public string getBuilder()
+		public Builder getBuilder()
 		{
 			return this.builder;
 		}
@@ -49,17 +89,17 @@ namespace GuitarApp1
 			return this.model;
 		}
 
-		public string getTopWood()
+		public Wood getTopWood()
 		{
 			return this.topWood;
 		}
 
-		public string getType()
+		public Type getType()
 		{
 			return this.type;
 		}
 
-		public string getBackWood()
+		public Wood getBackWood()
 		{
 			return this.backWood;
 		}

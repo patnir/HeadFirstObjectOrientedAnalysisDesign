@@ -10,9 +10,14 @@ namespace GuitarApp1
 	{
 		private LinkedList<Guitar> guitars;
 
+		public Inventory()
+		{
+			guitars = new LinkedList<Guitar>();
+		}
+
 		public void addGuitar(string serialNumber, double price,
-			string builder, string model, string type, string backWood,
-			string topWood)
+			Builder builder, string model, Type type, Wood backWood,
+			Wood topWood)
 		{
 			Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
 			guitars.AddLast(guitar);
@@ -33,7 +38,21 @@ namespace GuitarApp1
 
 		public Guitar search(Guitar searchGuitar)
 		{
-
+			foreach (Guitar g in this.guitars)
+			{
+				if (g.getBuilder() != searchGuitar.getBuilder())
+					continue;
+				if (g.getType() != searchGuitar.getType())
+					continue;
+				if (g.getBackWood() != searchGuitar.getBackWood())
+					continue;
+				if (g.getTopWood() != searchGuitar.getTopWood())
+					continue;
+				string model = g.getModel();
+				if (compareStrings(model, searchGuitar.getModel()) == false)
+					continue;
+				return g;
+			}
 			return null;
 		}
 

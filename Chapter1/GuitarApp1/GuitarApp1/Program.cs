@@ -10,6 +10,12 @@ namespace GuitarApp1
 	{
 		static void Main(string[] args)
 		{
+			Console.WriteLine("guitar app 1\n");
+
+			FindGuitarTester.Test1();
+
+			Console.WriteLine("press enter key to exit");
+			Console.ReadLine();
 		}
 	}
 }
