@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Timers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace DougDogDoor
 {
@@ -25,7 +26,17 @@ namespace DougDogDoor
 			else
 			{
 				door.openDogDoor();
+
+				Thread.Sleep(2000);
+
+				door.closeDogDoor();
 			}
+		}
+
+		private void OnTimedEvent(object source, ElapsedEventArgs e)
+		{
+			Console.WriteLine("Testing");
+			
 		}
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace DougDogDoor
 {
@@ -15,12 +15,32 @@ namespace DougDogDoor
 
 			Console.WriteLine("Dog barks to go outside");
 			remote.pressButton();
-			Console.WriteLine("Dog has gone outside");
+			Console.WriteLine("\n\nDog has gone outside");
 			remote.pressButton();
-			Console.WriteLine("Dog is done");
+			Console.WriteLine("\n\nDog is done");
 			remote.pressButton();
-			Console.WriteLine("Dog is back inside");
+			Console.WriteLine("\n\nDog is back inside");
 			remote.pressButton();
+
+		}
+
+		public static void Test2()
+		{
+			DogDoor door = new DogDoor();
+			Remote remote = new Remote(door);
+
+			remote.pressButton();
+			Console.WriteLine("\n\nDog has gone outside");
+			Console.WriteLine("\n\nDog is done");
+
+			try
+			{
+				Thread.Sleep(5000);
+			}
+			catch (ThreadInterruptedException e)
+			{
+				remote.pressButton();
+			}
 
 		}
 	}
