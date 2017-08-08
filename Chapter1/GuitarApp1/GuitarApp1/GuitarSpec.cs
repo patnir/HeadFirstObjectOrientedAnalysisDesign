@@ -6,40 +6,24 @@ using System.Threading.Tasks;
 
 namespace GuitarApp1
 {
-	public class GuitarSpec
+	public class GuitarSpec : InstrumentSpec
 	{
-		private Builder builder;
-		private Type type;
-		private Wood backWood;
-		private Wood topWood;
-		private string model;
+		
 		private int numStrings;
 
 
 		public GuitarSpec(Builder builder, string model, Type type, Wood backWood,
-			Wood topWood, int numStrings)
+			Wood topWood, int numStrings) : base(builder, model, type, backWood, topWood)
 		{
-			this.builder = builder;
-			this.type = type;
-			this.topWood = topWood;
-			this.backWood = backWood;
-			this.model = model;
 			this.numStrings = numStrings;
 		}
 
-		public bool Equals(GuitarSpec spec)
+		public bool Equals(InstrumentSpec spec)
 		{
-			if (this.type != spec.type)
+			if (!base.Equals(spec))
 				return false;
-			if (this.builder != spec.builder)
-				return false;
-			if (this.backWood != spec.backWood)
-				return false;
-			if (this.topWood != spec.topWood)
-				return false;
-			if (this.numStrings != spec.numStrings)
-				return false;
-			if (spec.model == null || spec.model == "" || spec.model != this.model)
+			GuitarSpec gspec = (GuitarSpec)spec;
+			if (this.numStrings != gspec.numStrings)
 				return false;
 			return true;
 		}

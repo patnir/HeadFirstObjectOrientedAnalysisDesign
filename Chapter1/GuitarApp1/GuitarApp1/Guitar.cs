@@ -38,18 +38,11 @@ namespace GuitarApp1
 	}
 
 
-	public class Guitar
-	{
-		public string serialNumber;
-		private double price;
-		private GuitarSpec spec;
-
+	public class Guitar : Instrument
+	{	
 		public Guitar(string serialNumber, double price,
-			GuitarSpec spec)
+			GuitarSpec spec) : base(serialNumber, price, spec)
 		{
-			this.serialNumber = serialNumber;
-			this.price = price;
-			this.spec = spec;
 		}
 
 		public void print()
@@ -66,20 +59,13 @@ namespace GuitarApp1
 
 		public GuitarSpec getGuitarSpec()
 		{
-			return this.spec;
+			GuitarSpec current = (GuitarSpec)base.getSpec();
+			
 		}
-
-
 
 		public void setPrice(float newPrice)
 		{
 			this.price = newPrice;
 		}
-
-
-
-		
-
-		
 	}
 }
