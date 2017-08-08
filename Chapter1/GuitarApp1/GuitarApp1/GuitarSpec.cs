@@ -18,13 +18,18 @@ namespace GuitarApp1
 			this.numStrings = numStrings;
 		}
 
-		public bool Equals(InstrumentSpec spec)
+		public new bool Equals(InstrumentSpec spec)
 		{
 			if (!base.Equals(spec))
 				return false;
+
+			if (!(spec is GuitarSpec))
+				return false;
+
 			GuitarSpec gspec = (GuitarSpec)spec;
 			if (this.numStrings != gspec.numStrings)
 				return false;
+
 			return true;
 		}
 
