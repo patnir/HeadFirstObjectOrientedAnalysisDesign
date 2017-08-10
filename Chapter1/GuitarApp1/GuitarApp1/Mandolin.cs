@@ -11,8 +11,5 @@ namespace GuitarApp1
 		public Mandolin(string serialNumber, double price, MandolinSpec spec) : base(serialNumber, price, spec)
 		{
 		}
-
-
-
 	}
 }

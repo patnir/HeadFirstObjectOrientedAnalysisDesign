@@ -19,6 +19,16 @@ namespace GuitarApp1
 			this.spec = spec;
 		}
 
+		public string getSerialNumber()
+		{
+			return this.serialNumber;
+		}
+
+		public double getPrice()
+		{
+			return this.price;	
+		}
+
 		public InstrumentSpec getSpec()
 		{
 			return spec;

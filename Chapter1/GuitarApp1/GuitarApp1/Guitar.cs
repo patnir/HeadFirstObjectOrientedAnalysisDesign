@@ -44,28 +44,5 @@ namespace GuitarApp1
 			GuitarSpec spec) : base(serialNumber, price, spec)
 		{
 		}
-
-		public void print()
-		{
-			this.spec.print();
-			Console.WriteLine("You can get it for $" + this.price + ".\n");
-		}
-		
-
-		public string getSerialNumber()
-		{
-			return this.serialNumber;
-		}
-
-		public GuitarSpec getGuitarSpec()
-		{
-			GuitarSpec current = (GuitarSpec)base.getSpec();
-			
-		}
-
-		public void setPrice(float newPrice)
-		{
-			this.price = newPrice;
-		}
 	}
 }
