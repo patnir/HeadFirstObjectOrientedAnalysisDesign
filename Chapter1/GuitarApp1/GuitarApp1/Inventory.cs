@@ -43,6 +43,20 @@ namespace GuitarApp1
 			return null;
 		}
 
+		public List<Instrument> search(InstrumentSpec searchSpec)
+		{
+			List<Instrument> toRet = new List<Instrument>();
+
+			foreach (Instrument instrument in this.instruments)
+			{
+				if (searchSpec.Equals(instrument.getSpec()))
+				{
+					toRet.Add(instrument);
+				}
+			}
+			return toRet;
+		}
+
 		public List<Guitar> search(GuitarSpec searchGuitar)
 		{
 			List<Guitar> matches = new List<Guitar>();
