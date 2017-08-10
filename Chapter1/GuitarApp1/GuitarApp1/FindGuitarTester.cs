@@ -18,8 +18,7 @@ namespace GuitarApp1
 
 			if (matches.Count != 0)
 			{
-				foreach(Guitar guitar in matches)
-					guitar.print();
+				Console.WriteLine("found count = {0}", matches.Count);
 			}
 			else
 			{
@@ -29,11 +28,14 @@ namespace GuitarApp1
 
 		public static void initializeInventory(Inventory inventory)
 		{
-			inventory.addGuitar("V95693", 1499.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6);
-			inventory.addGuitar("V95693", 1699.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 12);
-
-			inventory.addGuitar("V95693", 1599.95, Builder.FENDER, "Stratocastor", Type.ACOUSITC, Wood.ALDER, Wood.CEDAR, 12);
-			inventory.addGuitar("V95693", 1799.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6);
+			GuitarSpec spec = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 12);
+			inventory.addInstrument("V95693", 1499.95, spec);
+			MandolinSpec mspec = new MandolinSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, Style.A);
+			inventory.addInstrument("V95693", 1699.95, mspec);
+			spec = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 12);
+			inventory.addInstrument("V95693", 1599.95, spec);
+			spec = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ACOUSITC, Wood.ALDER, Wood.ALDER, 6);
+			inventory.addInstrument("V95693", 1799.95, spec);
 
 		}
 	}

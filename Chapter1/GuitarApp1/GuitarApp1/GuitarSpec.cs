@@ -34,39 +34,9 @@ namespace GuitarApp1
 		}
 
 
-		public void print()
-		{
-			Console.WriteLine(
-				this.builder + " " + this.model + " " + this.type + " guitar:\n"
-			+ this.numStrings.ToString() + " strings with " + this.backWood + " back and sides, and " + this.topWood + " top.");
-		}
-
-		public string getModel()
-		{
-			return this.model;
-		}
-
 		public int getNumStrings()
 		{
 			return this.numStrings;
-		}
-
-		public Builder getBuilder()
-		{
-			return this.builder;
-		}
-		public Wood getTopWood()
-		{
-			return this.topWood;
-		}
-		public Type getType()
-		{
-			return this.type;
-		}
-
-		public Wood getBackWood()
-		{
-			return this.backWood;
 		}
 	}
 }

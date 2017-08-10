@@ -46,11 +46,11 @@ namespace GuitarApp1
 		public List<Guitar> search(GuitarSpec searchGuitar)
 		{
 			List<Guitar> matches = new List<Guitar>();
-			foreach (Guitar guitar in this.instruments)
+			foreach (Instrument guitar in this.instruments)
 			{
-				GuitarSpec spec = (GuitarSpec)guitar.getSpec();
+				InstrumentSpec spec = guitar.getSpec();
 				if (searchGuitar.Equals(spec))
-					matches.Add(guitar);
+					matches.Add((Guitar)guitar);
 			}
 			return matches;
 		}
@@ -58,11 +58,11 @@ namespace GuitarApp1
 		public List<Mandolin> search(MandolinSpec searchGuitar)
 		{
 			List<Mandolin> matches = new List<Mandolin>();
-			foreach (Mandolin mandolin in this.instruments)
+			foreach (Instrument mandolin in this.instruments)
 			{
-				MandolinSpec spec = (MandolinSpec)mandolin.getSpec();
+				InstrumentSpec spec = mandolin.getSpec();
 				if (searchGuitar.Equals(spec))
-					matches.Add(mandolin);
+					matches.Add((Mandolin)mandolin);
 			}
 			return matches;
 		}
