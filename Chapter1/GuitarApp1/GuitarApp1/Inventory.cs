@@ -8,25 +8,31 @@ namespace GuitarApp1
 {
 	public class Inventory
 	{
-		private LinkedList<Guitar> guitars;
+		private List<Instrument> instruments;
 
 		public Inventory()
 		{
-			guitars = new LinkedList<Guitar>();
+			instruments = new List<Instrument>();
 		}
 
-		public void addGuitar(string serialNumber, double price,
-			Builder builder, string model, Type type, Wood backWood,
-			Wood topWood, int numStrings)
+		public void addInstrument(string serialNumber, double price, InstrumentSpec spec)
 		{
-			GuitarSpec spec = new GuitarSpec(builder, model, type, backWood, topWood, numStrings);
-			Guitar guitar = new Guitar(serialNumber, price, spec);
-			guitars.AddLast(guitar);
+			Instrument instrument = null;
+			if (spec is GuitarSpec)
+			{
+				instrument = new Guitar(serialNumber, price, (GuitarSpec)spec);
+			}
+			else if (spec is MandolinSpec)
+			{
+				instrument = new Mandolin(serialNumber, price, (MandolinSpec)spec);
+			}
+
+			instruments.Add(instrument);
 		}
 
-		public Guitar getGuitar(string serialNumber)
+		public Instrument getInstrument(string serialNumber)
 		{
-			foreach (Guitar g in this.guitars)
+			foreach (Instrument g in this.instruments)
 			{
 				if (g.getSerialNumber() == serialNumber)
 				{
@@ -40,11 +46,23 @@ namespace GuitarApp1
 		public List<Guitar> search(GuitarSpec searchGuitar)
 		{
 			List<Guitar> matches = new List<Guitar>();
-			foreach (Guitar guitar in this.guitars)
+			foreach (Guitar guitar in this.instruments)
 			{
-				GuitarSpec spec = guitar.getGuitarSpec();
+				GuitarSpec spec = (GuitarSpec)guitar.getSpec();
 				if (searchGuitar.Equals(spec))
 					matches.Add(guitar);
+			}
+			return matches;
+		}
+
+		public List<Mandolin> search(MandolinSpec searchGuitar)
+		{
+			List<Mandolin> matches = new List<Mandolin>();
+			foreach (Mandolin mandolin in this.instruments)
+			{
+				MandolinSpec spec = (MandolinSpec)mandolin.getSpec();
+				if (searchGuitar.Equals(spec))
+					matches.Add(mandolin);
 			}
 			return matches;
 		}
