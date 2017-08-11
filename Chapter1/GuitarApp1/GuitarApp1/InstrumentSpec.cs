@@ -6,39 +6,46 @@ using System.Threading.Tasks;
 
 namespace GuitarApp1
 {
-	public abstract class InstrumentSpec
+	public class InstrumentSpec
 	{
-		private Builder builder;
-		private Type type;
-		private Wood backWood;
-		private Wood topWood;
-		private string model;
+		private Dictionary<object, object> properties;
 
-		public InstrumentSpec(Builder builder, string model, Type type, Wood backWood,
-			Wood topWood)
+		public InstrumentSpec(Dictionary<object, object> properties)
 		{
-			this.builder = builder;
-			this.type = type;
-			this.topWood = topWood;
-			this.backWood = backWood;
-			this.model = model;
+			if (properties == null)
+			{
+				this.properties = new Dictionary<object, object>();
+			}
+			else
+			{
+				this.properties = new Dictionary<object, object>(properties);
+			}
 		}
 
+		public Dictionary<object, object> getProperties()
+		{
+			return this.properties;
+		}
+
+		public object getProperty(string key)
+		{
+			return this.properties[key];
+		}
 
 		public bool Equals(InstrumentSpec spec)
 		{
-			if (this.type != spec.type)
-				return false;
-			if (this.builder != spec.builder)
-				return false;
-			if (this.backWood != spec.backWood)
-				return false;
-			if (this.topWood != spec.topWood)
-				return false;
-			if (spec.model == null || spec.model == "" || spec.model != this.model)
-				return false;
+
+			foreach (object key in spec.getProperties().Keys) {
+				if (!this.properties.ContainsKey(key))
+				{
+					return false;
+				}
+				else if (this.properties[key] != spec.getProperty(key))
+				{
+					return false;
+				}
+			}
 			return true;
 		}
-
 	}
 }

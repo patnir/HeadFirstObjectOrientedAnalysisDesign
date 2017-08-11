@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuitarApp1
 {
-	public abstract class Instrument
+	public class Instrument
 	{
 		private string serialNumber;
 		private double price;
@@ -33,5 +33,21 @@ namespace GuitarApp1
 		{
 			return spec;
 		}
+
+
+		//public new bool Equals(InstrumentSpec spec)
+		//{
+		//	if (!base.Equals(spec))
+		//		return false;
+
+		//	if (!(spec is GuitarSpec))
+		//		return false;
+
+		//	GuitarSpec gspec = (GuitarSpec)spec;
+		//	if (this.numStrings != gspec.numStrings)
+		//		return false;
+
+		//	return true;
+		//}
 	}
 }

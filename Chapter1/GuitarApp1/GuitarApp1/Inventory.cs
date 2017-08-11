@@ -6,6 +6,46 @@ using System.Threading.Tasks;
 
 namespace GuitarApp1
 {
+	public enum Type
+	{
+		ACOUSITC,
+		ELECTRIC
+	}
+
+	public enum Builder
+	{
+		FENDER,
+		MARTIN,
+		GIBSON,
+		COLLINGS,
+		OLSON,
+		RYAN,
+		PRS,
+		ANY
+	}
+
+	public enum Wood
+	{
+		INDIAN_ROSEWOOD,
+		BRAZILIAN_ROSEWOOD,
+		MAHOGANY,
+		MAPLE,
+		COCOBOLO,
+		CEDAR,
+		ADIRONDACK,
+		ALDER,
+		SITKA
+	}
+
+	public enum InstrumentType
+	{
+		GUITAR, 
+		BANJO, MANDOLIN, 
+		DOBRO,
+		FIDDLE,
+		BASS
+	}
+
 	public class Inventory
 	{
 		private List<Instrument> instruments;
@@ -17,16 +57,7 @@ namespace GuitarApp1
 
 		public void addInstrument(string serialNumber, double price, InstrumentSpec spec)
 		{
-			Instrument instrument = null;
-			if (spec is GuitarSpec)
-			{
-				instrument = new Guitar(serialNumber, price, (GuitarSpec)spec);
-			}
-			else if (spec is MandolinSpec)
-			{
-				instrument = new Mandolin(serialNumber, price, (MandolinSpec)spec);
-			}
-
+			Instrument instrument = new Instrument(serialNumber, price, spec);
 			instruments.Add(instrument);
 		}
 

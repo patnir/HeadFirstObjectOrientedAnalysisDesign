@@ -6,36 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuitarApp1
 {
-	public enum Type
-	{
-		ACOUSITC,
-		ELECTRIC		
-	}
-
-	public enum Builder
-	{
-		FENDER,
-		MARTIN, 
-		GIBSON, 
-		COLLINGS,
-		OLSON,
-		RYAN, 
-		PRS,
-		ANY
-	}
-
-	public enum Wood
-	{
-		INDIAN_ROSEWOOD,
-		BRAZILIAN_ROSEWOOD,
-		MAHOGANY,
-		MAPLE,
-		COCOBOLO,
-		CEDAR,
-		ADIRONDACK,
-		ALDER,
-		SITKA
-	}
+	
 
 
 	public class Guitar : Instrument
